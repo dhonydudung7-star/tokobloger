@@ -193,10 +193,10 @@
             let productsArray = [];
             
             productRows.forEach(row => {
-                const title = row.querySelector('.prod-title').value;
+                const title = row.querySelector('.prod-title').value.replace(/[&<>"']/g, "");
                 const price = row.querySelector('.prod-price').value;
                 const img = row.querySelector('.prod-img').value;
-                const cat = row.querySelector('.prod-cat').value;
+                const cat = row.querySelector('.prod-cat').value.replace(/[&<>"']/g, "");
                 productsArray.push({ title, price, img, category: cat });
             });
 
@@ -340,7 +340,7 @@
                 <a href="/" class="logo">${siteName}</a>
                 <div class="header-contact">
                     <svg style="width:18px;height:18px;fill:var(--primary-color);" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                    Aman & Terpercaya
+                    Aman &amp; Terpercaya
                 </div>
             </div>
         </header>
@@ -361,7 +361,7 @@
         <footer class="site-footer">
             <div class="container">
                 <h3>${siteName}</h3>
-                <p>&copy; 2024 Hak Cipta Dilindungi. Platform by Dtechno.</p>
+                <p>&#169; 2024 Hak Cipta Dilindungi. Platform by Dtechno.</p>
             </div>
         </footer>
 
