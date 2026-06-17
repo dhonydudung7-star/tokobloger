@@ -420,7 +420,7 @@
             </div>
 
             <div class="chat-input-area">
-                <input type="text" id="chatInput" class="chat-input" placeholder="Tulis pesan..." autocomplete="off">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Tulis pesan..." autocomplete="off" />
                 <button class="chat-send" id="chatSend">
                     <svg style="width:18px;height:18px;fill:white;" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>
@@ -524,12 +524,12 @@
         let t = text.toLowerCase();
         let reply = "";
         const waLink = "https://api.whatsapp.com/send?phone=" + storePhone + "&text=Halo%20Admin%20" + encodeURIComponent(storeName) + ",%20saya%20butuh%20bantuan.";
-        const actionBtn = '<br><a href="' + waLink + '" target="_blank" class="btn-chat-action">Chat Admin WA</a>';
+        const actionBtn = '<br/><br/><a href="' + waLink + '" target="_blank" class="btn-chat-action">Chat Admin WA</a>';
 
         if(t.includes('harga') || t.includes('stok') || t.includes('produk') || t.includes('katalog') || t.includes('jual')) {
-            reply = "Saat ini kami memiliki beberapa produk unggulan, di antaranya:<br>";
+            reply = "Saat ini kami memiliki beberapa produk unggulan, di antaranya:<br/>";
             themeProducts.slice(0,3).forEach(p => {
-                reply += "• " + p.title + " (Rp " + p.price + ")<br>";
+                reply += "• " + p.title + " (Rp " + p.price + ")<br/>";
             });
             reply += "Silakan cek langsung di halaman utama ya kak!";
         } else if(t.includes('order') || t.includes('beli') || t.includes('pesan') || t.includes('cara')) {
@@ -570,27 +570,5 @@
     //]]>
     <\/script>
 
-</body>
-</html>`;
-
-            // Render ke Log Console
-            document.getElementById('xmlConsole').value = xmlTemplate;
-
-            // Trigger Download File XML
-            const blob = new Blob([xmlTemplate], { type: "text/xml" });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            const safeName = siteName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, '');
-            a.download = safeName + "-theme.xml";
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-            
-            // Beri Feedback
-            alert("Sistem AI Chat Berhasil Di-Integrasikan! Mengunduh XML...");
-        }
-    </script>
 </body>
 </html>
