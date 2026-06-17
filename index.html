@@ -36,44 +36,77 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            <div class="lg:col-span-1 bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-6">
+            <div class="lg:col-span-4 bg-white border border-gray-200 rounded-2xl p-6 shadow-sm space-y-6 h-fit max-h-[85vh] overflow-y-auto">
                 <div>
                     <h2 class="text-lg font-bold text-gray-900 flex items-center">
                         <i data-lucide="sliders" class="w-5 h-5 mr-2 text-indigo-600"></i> Konfigurasi Website
                     </h2>
-                    <p class="text-xs text-gray-500 mt-1">Sesuaikan pengaturan SEO, data toko, dan tema warna.</p>
+                    <p class="text-xs text-gray-500 mt-1">Pengaturan dasar toko dan integrasi AI Chat.</p>
                 </div>
                 
                 <hr class="border-gray-100" />
 
                 <form id="builderForm" class="space-y-4" onsubmit="event.preventDefault();">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Nama Toko / Website</label>
-                        <input type="text" id="siteName" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" value="Hijab Store Id">
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Nama Toko</label>
+                            <input type="text" id="siteName" required class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" value="NusaMart">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">No. WhatsApp (Gunakan 62)</label>
+                            <input type="number" id="whatsappNum" required class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" value="6281234567890">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Judul Web (SEO)</label>
+                            <input type="text" id="seoTitle" required class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" value="NusaMart | Pusat Belanja Online Terpercaya">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Deskripsi Toko</label>
+                            <textarea id="seoDesc" required rows="2" class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">Temukan koleksi busana berkualitas tinggi dan harga terjangkau. Beli langsung via WhatsApp!</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Warna Aksen Tema</label>
+                            <input type="color" id="themeColor" class="w-16 h-8 p-0 border-0 rounded cursor-pointer" value="#ea580c">
+                        </div>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">No. WhatsApp (Gunakan 62)</label>
-                        <input type="number" id="whatsappNum" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" value="6281234567890">
-                    </div>
+                    <hr class="border-gray-200" />
 
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">SEO Title / Judul Web</label>
-                        <input type="text" id="seoTitle" required class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" value="Hijab Store Id | Pusat Hijab Trendy Premium">
-                    </div>
+                    <div class="space-y-4 bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+                        <h3 class="text-sm font-bold text-indigo-900 flex items-center">
+                            <i data-lucide="bot-message-square" class="w-4 h-4 mr-2"></i> Pengaturan AI Chat
+                        </h3>
+                        
+                        <div class="flex items-center space-x-2">
+                            <input type="checkbox" id="aiEnable" checked class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500">
+                            <label for="aiEnable" class="text-sm font-medium text-gray-700">Aktifkan AI Widget</label>
+                        </div>
 
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Deskripsi Toko (Untuk Hero Banner & SEO)</label>
-                        <textarea id="seoDesc" required rows="3" class="w-full px-3 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">Temukan koleksi pashmina, scraft, dan busana muslimah kekinian dengan bahan berkualitas tinggi dan harga terjangkau. Beli langsung via WhatsApp!</textarea>
-                    </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Nama Asisten</label>
+                            <input type="text" id="aiName" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" value="NusaBot">
+                        </div>
 
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">Warna Utama Tema</label>
-                        <div class="flex items-center space-x-3">
-                            <input type="color" id="themeColor" class="w-12 h-10 p-1 bg-gray-50 border border-gray-300 rounded-xl cursor-pointer" value="#4f46e5">
-                            <span class="text-xs text-gray-500">Pilih warna branding Anda</span>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Pesan Sapaan</label>
+                            <input type="text" id="aiGreeting" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" value="Halo kak! Ada yang bisa saya bantu terkait produk kami?">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Mode AI Engine</label>
+                            <select id="aiMode" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <option value="local">Local (Rule-Based dari Data Tabel)</option>
+                                <option value="api">Gemini API (Via Backend Endpoint)</option>
+                            </select>
+                        </div>
+
+                        <div id="apiEndpointContainer" class="hidden">
+                            <label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Endpoint Backend API</label>
+                            <input type="url" id="aiEndpoint" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="https://domain.com/api/ai-chat" value="https://domain.com/api/ai-chat">
+                            <p class="text-[10px] text-gray-500 mt-1">Endpoint ini harus menangani rahasia Gemini API Key di server Anda.</p>
                         </div>
                     </div>
 
@@ -84,15 +117,15 @@
                 </form>
             </div>
 
-            <div class="lg:col-span-2 space-y-6">
+            <div class="lg:col-span-8 space-y-6">
                 
                 <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
                     <div class="flex justify-between items-center mb-4">
                         <div>
                             <h2 class="text-lg font-bold text-gray-900 flex items-center">
-                                <i data-lucide="shopping-bag" class="w-5 h-5 mr-2 text-indigo-600"></i> Manajemen Produk
+                                <i data-lucide="shopping-bag" class="w-5 h-5 mr-2 text-indigo-600"></i> Manajemen Produk & Data AI
                             </h2>
-                            <p class="text-xs text-gray-500 mt-1">Isi daftar produk toko. Semuanya akan langsung masuk ke tema XML Anda.</p>
+                            <p class="text-xs text-gray-500 mt-1">Data ini digunakan untuk membangun katalog dan di-inject sebagai *knowledge base* AI Local.</p>
                         </div>
                         <button onclick="addProductRow()" class="bg-gray-900 hover:bg-gray-800 text-white text-xs font-medium py-2 px-3 rounded-xl transition flex items-center space-x-1">
                             <i data-lucide="plus" class="w-3.5 h-3.5"></i>
@@ -117,15 +150,6 @@
                                     <td class="p-3"><input type="number" class="prod-price w-full min-w-[100px] bg-transparent focus:bg-white border-0 focus:ring-1 focus:ring-indigo-500 rounded p-1" value="85000"></td>
                                     <td class="p-3"><input type="text" class="prod-img w-full min-w-[150px] bg-transparent focus:bg-white border-0 focus:ring-1 focus:ring-indigo-500 rounded p-1" value="https://images.unsplash.com/photo-1609357518652-6cf0416f0cbe?w=500"></td>
                                     <td class="p-3"><input type="text" class="prod-cat w-full min-w-[100px] bg-transparent focus:bg-white border-0 focus:ring-1 focus:ring-indigo-500 rounded p-1" value="Pashmina"></td>
-                                    <td class="p-3 text-center">
-                                        <button onclick="this.closest('tr').remove()" class="text-red-500 hover:text-red-700 p-1"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-gray-50 align-middle product-row">
-                                    <td class="p-3"><input type="text" class="prod-title w-full min-w-[150px] bg-transparent focus:bg-white border-0 focus:ring-1 focus:ring-indigo-500 rounded p-1" value="Gamis Syari Elegan"></td>
-                                    <td class="p-3"><input type="number" class="prod-price w-full min-w-[100px] bg-transparent focus:bg-white border-0 focus:ring-1 focus:ring-indigo-500 rounded p-1" value="215000"></td>
-                                    <td class="p-3"><input type="text" class="prod-img w-full min-w-[150px] bg-transparent focus:bg-white border-0 focus:ring-1 focus:ring-indigo-500 rounded p-1" value="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500"></td>
-                                    <td class="p-3"><input type="text" class="prod-cat w-full min-w-[100px] bg-transparent focus:bg-white border-0 focus:ring-1 focus:ring-indigo-500 rounded p-1" value="Gamis"></td>
                                     <td class="p-3 text-center">
                                         <button onclick="this.closest('tr').remove()" class="text-red-500 hover:text-red-700 p-1"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
                                     </td>
@@ -156,6 +180,16 @@
         // Inisialisasi ikon
         lucide.createIcons();
 
+        // Toggle endpoint field based on AI Mode
+        document.getElementById('aiMode').addEventListener('change', function() {
+            const container = document.getElementById('apiEndpointContainer');
+            if(this.value === 'api') {
+                container.classList.remove('hidden');
+            } else {
+                container.classList.add('hidden');
+            }
+        });
+
         // Tambah Baris Produk
         function addProductRow() {
             const container = document.getElementById('productContainer');
@@ -176,12 +210,19 @@
 
         // GENERATOR XML TEMA BLOGGER PENUH
         function generateBloggerXML() {
-            // Ambil Input
+            // Basic Input
             const siteName = document.getElementById('siteName').value.replace(/[&<>"']/g, "");
             const whatsappNum = document.getElementById('whatsappNum').value;
             const seoTitle = document.getElementById('seoTitle').value.replace(/[&<>"']/g, "");
             const seoDesc = document.getElementById('seoDesc').value.replace(/[&<>"']/g, "");
             const themeColor = document.getElementById('themeColor').value;
+            
+            // AI Input
+            const aiEnable = document.getElementById('aiEnable').checked;
+            const aiName = document.getElementById('aiName').value.replace(/[&<>"']/g, "");
+            const aiGreeting = document.getElementById('aiGreeting').value.replace(/[&<>"']/g, "");
+            const aiMode = document.getElementById('aiMode').value;
+            const aiEndpoint = document.getElementById('aiEndpoint').value;
 
             if(!siteName || !whatsappNum || !seoTitle) {
                 alert("Lengkapi field utama terlebih dahulu!");
@@ -202,9 +243,7 @@
 
             const jsonProductsString = JSON.stringify(productsArray);
 
-            // ==========================================================
-            // TEMPLATE XML FULL BLOGGER (MENGGANTIKAN SEMUA DEFAULT)
-            // ==========================================================
+            // Set Up XML
             const xmlTemplate = `<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css='false' b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2000/b/?' xmlns:data='http://www.google.com/2000/b/data' xmlns:expr='http://www.google.com/2000/b/expr'>
@@ -230,78 +269,30 @@
     }
 
     /* HARD RESET BLOGGER DEFAULT WIDGETS */
-    #navbar-iframe,
-    .widget.Attribution,
-    .widget.Profile,
-    .widget.BlogArchive,
-    .widget.Label,
-    .widget.PageList,
-    .widget.Header,
-    .blog-feeds,
-    .feed-links,
-    .status-msg-wrap,
-    .post-footer,
-    .comments,
-    .sidebar,
-    #sidebar-wrapper,
-    #footer-wrapper,
-    #Attribution1,
-    #Profile1,
-    #BlogArchive1,
-    #Label1 {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        overflow: hidden !important;
-    }
-
-    body {
-        margin: 0 !important;
-        padding: 0 !important;
-        background-color: var(--bg-body);
-        color: var(--text-dark);
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
-
-    #main-wrapper,
-    #content-wrapper,
-    .main-inner,
-    .content-inner,
-    .region-inner {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* GLOBAL STYLES */
+    #navbar-iframe, .widget.Attribution, .widget.Profile, .widget.BlogArchive, .widget.Label, .widget.PageList, .widget.Header, .blog-feeds, .feed-links, .status-msg-wrap, .post-footer, .comments, .sidebar, #sidebar-wrapper, #footer-wrapper, #Attribution1, #Profile1, #BlogArchive1, #Label1 { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; }
+    body { margin: 0 !important; padding: 0 !important; background-color: var(--bg-body); color: var(--text-dark); line-height: 1.5; -webkit-font-smoothing: antialiased; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    #main-wrapper, #content-wrapper, .main-inner, .content-inner, .region-inner { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
     * { box-sizing: border-box; }
     a { text-decoration: none; color: inherit; }
 
     /* LAYOUT COMPONENTS */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    
-    /* HEADER */
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
     .site-header { background: var(--bg-white); box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
     .header-inner { display: flex; justify-content: space-between; align-items: center; height: 70px; }
     .logo { font-size: 24px; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px; }
     .header-contact { font-size: 14px; font-weight: 600; color: var(--text-light); display: flex; align-items: center; gap: 8px;}
     
-    /* HERO BANNER */
     .hero { background: linear-gradient(135deg, var(--primary-color), #2d3748); color: white; padding: 60px 20px; text-align: center; margin-bottom: 40px; }
     .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 15px; }
     .hero p { font-size: 16px; max-width: 600px; margin: 0 auto; opacity: 0.9; line-height: 1.6; }
 
-    /* SECTION TITLE */
     .section-title { font-size: 22px; font-weight: 700; margin-bottom: 25px; color: var(--text-dark); text-align: center; }
 
     /* PRODUCT GRID */
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin-bottom: 60px; }
-    .product-card { background: var(--bg-white); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e5e7eb; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-    .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.06); }
-    .product-img { width: 100%; height: 240px; background-size: cover; background-position: center; background-color: #f9fafb; border-bottom: 1px solid #f3f4f6; }
+    .grid-products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto; }
+    .card-prod { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,.08); transition: .3s; display: flex; flex-direction: column; height: 100%; }
+    .card-prod:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,.15); }
+    .img-wrap { width: 100%; height: 260px; background-size: cover; background-position: center; object-fit: cover; border-radius: 12px 12px 0 0; }
     .product-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
     .product-category { font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--primary-color); background: #eff6ff; padding: 4px 10px; border-radius: 100px; align-self: flex-start; margin-bottom: 10px; }
     .product-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); line-height: 1.3; }
@@ -314,20 +305,52 @@
     .site-footer h3 { color: white; font-size: 20px; margin-bottom: 10px; }
     
     /* FLOATING WHATSAPP */
-    .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37,211,102,0.4); z-index: 9999; transition: transform 0.2s; }
+    .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37,211,102,0.4); z-index: 9998; transition: transform 0.2s; }
     .floating-wa:hover { transform: scale(1.1); }
     .floating-wa svg { width: 32px; height: 32px; fill: currentColor; }
 
-    /* RESPONSIF */
-    @media (max-width: 640px) {
-        .hero h1 { font-size: 28px; }
-        .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-        .product-img { height: 180px; }
-        .product-body { padding: 15px; }
-        .product-title { font-size: 14px; }
-        .btn-buy { padding: 10px; font-size: 13px; }
+    /* AI CHAT WIDGET STYLES */
+    .chat-btn { position: fixed; bottom: 100px; right: 30px; background: var(--primary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 9998; cursor: pointer; transition: transform 0.2s; border: none; }
+    .chat-btn:hover { transform: scale(1.1); }
+    .chat-btn svg { width: 28px; height: 28px; fill: white; }
+    
+    .chat-popup { position: fixed; bottom: 170px; right: 30px; width: 350px; height: 500px; max-width: 90vw; max-height: 70vh; background: white; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); z-index: 9999; display: flex; flex-direction: column; overflow: hidden; transform: scale(0); opacity: 0; transform-origin: bottom right; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .chat-popup.active { transform: scale(1); opacity: 1; }
+    
+    .chat-header { background: var(--primary-color); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .chat-header-info { display: flex; flex-direction: column; }
+    .chat-header-title { font-weight: 700; font-size: 16px; }
+    .chat-header-status { font-size: 12px; display: flex; align-items: center; opacity: 0.9; }
+    .chat-header-status::before { content: ''; width: 8px; height: 8px; background: #4ade80; border-radius: 50%; margin-right: 6px; }
+    .chat-close { background: transparent; border: none; color: white; font-size: 24px; cursor: pointer; opacity: 0.8; }
+    .chat-close:hover { opacity: 1; }
+    
+    .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9fafb; display: flex; flex-direction: column; gap: 10px; }
+    .msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.4; word-wrap: break-word; }
+    .msg.ai { background: white; border: 1px solid #e5e7eb; align-self: flex-start; border-bottom-left-radius: 4px; color: #1f2937; }
+    .msg.user { background: var(--primary-color); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+    
+    .chat-quick-replies { display: flex; gap: 8px; padding: 10px 15px; overflow-x: auto; background: white; border-top: 1px solid #f3f4f6; }
+    .chat-quick-replies::-webkit-scrollbar { display: none; }
+    .qr-chip { background: #eff6ff; color: var(--primary-color); border: 1px solid #bfdbfe; padding: 6px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .qr-chip:hover { background: var(--primary-color); color: white; }
+    
+    .chat-input-area { padding: 15px; background: white; border-top: 1px solid #e5e7eb; display: flex; gap: 10px; }
+    .chat-input { flex: 1; border: 1px solid #d1d5db; border-radius: 100px; padding: 10px 15px; font-size: 14px; outline: none; }
+    .chat-input:focus { border-color: var(--primary-color); }
+    .chat-send { background: var(--primary-color); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
+    
+    .btn-chat-action { display: inline-block; margin-top: 8px; background: #25D366; color: white; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1199px) { .grid-products { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 767px) {
+        .grid-products { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .img-wrap { height: 180px; } .product-body { padding: 12px; } .product-title { font-size: 14px; } .product-price { font-size: 15px; margin-bottom: 12px; } .btn-buy { padding: 10px; font-size: 13px; }
         .floating-wa { bottom: 20px; right: 20px; width: 50px; height: 50px; }
         .floating-wa svg { width: 26px; height: 26px; }
+        .chat-btn { bottom: 85px; right: 20px; width: 50px; height: 50px; }
+        .chat-popup { bottom: 145px; right: 10px; left: 10px; width: auto; height: 60vh; }
     }
     ]]></b:skin>
 </head>
@@ -354,22 +377,57 @@
 
         <main class="container" style="flex: 1;">
             <h2 class="section-title">Katalog Produk Kami</h2>
-            <div class="product-grid" id="product-grid-target">
-                </div>
+            <div class="grid-products" id="product-grid-target"></div>
         </main>
 
         <footer class="site-footer">
             <div class="container">
                 <h3>${siteName}</h3>
-                <p>&#169; 2024 Hak Cipta Dilindungi. Platform by Dtechno.</p>
+                <p>&#169; 2026 Hak Cipta Dilindungi. Platform by Dtechno.</p>
             </div>
         </footer>
 
-        <a href="https://wa.me/${whatsappNum}" target="_blank" class="floating-wa" title="Hubungi Kami via WhatsApp">
+        <a href="https://api.whatsapp.com/send?phone=${whatsappNum}&amp;text=Halo%20admin%20${encodeURIComponent(siteName)}" target="_blank" class="floating-wa" title="Hubungi Kami via WhatsApp">
             <svg viewBox="0 0 24 24">
                 <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 001.333 4.976L2 22l5.187-1.359a9.983 9.983 0 004.822 1.24h.005c5.505 0 9.988-4.479 9.988-9.985A9.97 9.97 0 0012.012 2zm0 18.272h-.004a8.276 8.276 0 01-4.215-1.147l-.302-.18-3.13.82.836-3.05-.197-.314A8.258 8.258 0 013.722 11.98c0-4.57 3.723-8.288 8.293-8.288 2.217 0 4.3.864 5.865 2.43a8.256 8.256 0 012.427 5.86c0 4.571-3.724 8.29-8.295 8.29zm4.549-6.2c-.25-.125-1.474-.727-1.703-.81-.228-.083-.395-.125-.561.125-.167.25-.644.81-.789.976-.145.166-.29.187-.54.062-.25-.125-1.052-.388-2.004-1.236-.74-.66-1.24-1.475-1.385-1.725-.145-.25-.015-.385.11-.51.112-.112.25-.292.375-.438.125-.145.166-.25.25-.416.083-.166.041-.312-.021-.437-.062-.125-.561-1.353-.768-1.85-.203-.483-.41-.418-.561-.425-.145-.008-.312-.008-.478-.008-.166 0-.437.062-.665.312-.229.25-.873.853-.873 2.078 0 1.226.894 2.41 1.018 2.576.125.166 1.756 2.678 4.252 3.754 1.488.64 2.062.68 2.825.56.84-.132 2.33-.95 2.662-1.87.332-.919.332-1.706.23-1.87-.104-.166-.375-.25-.624-.374z"/>
             </svg>
         </a>
+
+        ${aiEnable ? `
+        <button class="chat-btn" id="aiChatToggle" aria-label="Buka Chat AI">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/><path d="M7 9h10v2H7zM7 6h10v2H7z"/></svg>
+        </button>
+
+        <div class="chat-popup" id="aiChatPopup">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <span class="chat-header-title">Asisten AI Toko</span>
+                    <span class="chat-header-status">${aiName} - Online</span>
+                </div>
+                <button class="chat-close" id="aiChatClose">&times;</button>
+            </div>
+            
+            <div class="chat-body" id="chatBody">
+                <div class="msg ai">${aiGreeting}</div>
+            </div>
+
+            <div class="chat-quick-replies" id="chatQuickReplies">
+                <button class="qr-chip" onclick="sendQuickReply('Cek stok')">Cek stok</button>
+                <button class="qr-chip" onclick="sendQuickReply('Cara order')">Cara order</button>
+                <button class="qr-chip" onclick="sendQuickReply('Ongkir &amp; Pembayaran')">Ongkir &amp; Pembayaran</button>
+                <button class="qr-chip" onclick="sendQuickReply('Promo')">Promo</button>
+                <button class="qr-chip" onclick="sendQuickReply('Tanya admin')">Hubungi admin</button>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Tulis pesan..." autocomplete="off">
+                <button class="chat-send" id="chatSend">
+                    <svg style="width:18px;height:18px;fill:white;" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
+        </div>
+        ` : ''}
+
     </div>
     <div style="display:none;">
         <b:section id='Blogger_Engine' showaddelement='no'>
@@ -385,45 +443,130 @@
     const storePhone = "${whatsappNum}";
     const storeName = "${siteName}";
 
+    /* RENDER CATALOG */
     function renderStore() {
         const gridTarget = document.getElementById('product-grid-target');
         gridTarget.innerHTML = '';
-        
-        if(!themeProducts || themeProducts.length === 0) {
-            gridTarget.innerHTML = '<p style="text-align:center; grid-column:1/-1;">Belum ada produk yang ditambahkan.</p>';
-            return;
-        }
+        if(!themeProducts || themeProducts.length === 0) return;
 
         themeProducts.forEach(product => {
-            const formatter = new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR',
-                minimumFractionDigits: 0
-            });
-            const priceFormatted = formatter.format(product.price);
-
-            const waText = encodeURIComponent("Halo " + storeName + ", saya ingin membeli produk ini:\\n\\n" + "*Nama:* " + product.title + "\\n*Harga:* " + priceFormatted + "\\n\\nMohon info ketersediaannya. Terima kasih!");
+            const priceFormatted = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(product.price);
+            const waText = encodeURIComponent("Halo " + storeName + ", saya ingin membeli produk:\\n\\n*" + product.title + "*\\nHarga: " + priceFormatted);
             const waLink = "https://api.whatsapp.com/send?phone=" + storePhone + "&text=" + waText;
 
-            const cardHtml = \`
-                <div class="product-img" style="background-image: url('\${product.img}')"></div>
-                <div class="product-body">
-                    <span class="product-category">\${product.category}</span>
-                    <h3 class="product-title">\${product.title}</h3>
-                    <div class="product-price">\${priceFormatted}</div>
-                    <a href="\${waLink}" target="_blank" class="btn-buy">Beli Sekarang</a>
-                </div>
-            \`;
-            
-            const cardElement = document.createElement('div');
-            cardElement.className = 'product-card';
-            cardElement.innerHTML = cardHtml;
-            gridTarget.appendChild(cardElement);
+            const card = document.createElement('div');
+            card.className = 'card-prod';
+            card.innerHTML = '<div class="img-wrap" style="background-image: url(\\'' + product.img + '\\')"></div><div class="product-body"><span class="product-category">' + product.category + '</span><h3 class="product-title">' + product.title + '</h3><div class="product-price">' + priceFormatted + '</div><a href="' + waLink + '" target="_blank" class="btn-buy">Beli Sekarang</a></div>';
+            gridTarget.appendChild(card);
         });
     }
     
-    // Auto-Run
-    document.addEventListener("DOMContentLoaded", renderStore);
+    /* AI CHAT ENGINE */
+    ${aiEnable ? `
+    const aiConfig = {
+        mode: "${aiMode}",
+        endpoint: "${aiEndpoint}"
+    };
+
+    function initChat() {
+        const toggle = document.getElementById('aiChatToggle');
+        const popup = document.getElementById('aiChatPopup');
+        const close = document.getElementById('aiChatClose');
+        const sendBtn = document.getElementById('chatSend');
+        const input = document.getElementById('chatInput');
+
+        toggle.addEventListener('click', () => popup.classList.add('active'));
+        close.addEventListener('click', () => popup.classList.remove('active'));
+        
+        sendBtn.addEventListener('click', handleSend);
+        input.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleSend(); });
+    }
+
+    window.sendQuickReply = function(text) {
+        document.getElementById('chatInput').value = text;
+        handleSend();
+    };
+
+    async function handleSend() {
+        const input = document.getElementById('chatInput');
+        const text = input.value.trim();
+        if(!text) return;
+        
+        appendMessage(text, 'user');
+        input.value = '';
+        
+        // Show typing indicator
+        const typingId = "typ-" + Date.now();
+        appendMessage("...", "ai", typingId);
+
+        if(aiConfig.mode === 'api') {
+            try {
+                const res = await fetch(aiConfig.endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text, store: { name: storeName, phone: storePhone }, products: themeProducts })
+                });
+                if(!res.ok) throw new Error("API Error");
+                const data = await res.json();
+                removeMessage(typingId);
+                appendMessage(data.reply, 'ai');
+            } catch(e) {
+                removeMessage(typingId);
+                processLocalReply(text); // Fallback to local
+            }
+        } else {
+            removeMessage(typingId);
+            processLocalReply(text);
+        }
+    }
+
+    function processLocalReply(text) {
+        let t = text.toLowerCase();
+        let reply = "";
+        const waLink = "https://api.whatsapp.com/send?phone=" + storePhone + "&text=Halo%20Admin%20" + encodeURIComponent(storeName) + ",%20saya%20butuh%20bantuan.";
+        const actionBtn = '<br><a href="' + waLink + '" target="_blank" class="btn-chat-action">Chat Admin WA</a>';
+
+        if(t.includes('harga') || t.includes('stok') || t.includes('produk') || t.includes('katalog') || t.includes('jual')) {
+            reply = "Saat ini kami memiliki beberapa produk unggulan, di antaranya:<br>";
+            themeProducts.slice(0,3).forEach(p => {
+                reply += "• " + p.title + " (Rp " + p.price + ")<br>";
+            });
+            reply += "Silakan cek langsung di halaman utama ya kak!";
+        } else if(t.includes('order') || t.includes('beli') || t.includes('pesan') || t.includes('cara')) {
+            reply = "Cara order sangat mudah kak! Kakak cukup klik produk yang diinginkan di halaman utama, lalu klik tombol <b>Beli Sekarang</b>. Pesanan akan otomatis diarahkan ke WhatsApp kami." + actionBtn;
+        } else if(t.includes('ongkir') || t.includes('bayar') || t.includes('transfer') || t.includes('pembayaran') || t.includes('kirim')) {
+            reply = "Untuk metode pembayaran (Transfer Bank/COD) dan perhitungan ongkos kirim ke alamat kakak, silakan diskusikan langsung dengan admin kami ya kak." + actionBtn;
+        } else if(t.includes('promo') || t.includes('diskon')) {
+            reply = "Promo dan potongan harga spesial biasanya kami informasikan langsung via WhatsApp. Yuk chat admin untuk cek promo hari ini!" + actionBtn;
+        } else if(t.includes('admin') || t.includes('halo') || t.includes('bantuan')) {
+            reply = "Halo! Jika ada kendala atau pertanyaan lebih detail, kakak bisa langsung terhubung dengan tim admin kami. Kami siap membantu!" + actionBtn;
+        } else {
+            reply = "Maaf kak, asisten belum menemukan info detail mengenai hal itu. Untuk pertanyaan spesifik, kakak bisa langsung chat admin kami ya." + actionBtn;
+        }
+
+        setTimeout(() => appendMessage(reply, 'ai'), 600);
+    }
+
+    function appendMessage(text, sender, id = null) {
+        const body = document.getElementById('chatBody');
+        const div = document.createElement('div');
+        div.className = 'msg ' + sender;
+        if(id) div.id = id;
+        div.innerHTML = text; // allow safe html from system
+        body.appendChild(div);
+        body.scrollTop = body.scrollHeight;
+    }
+
+    function removeMessage(id) {
+        const el = document.getElementById(id);
+        if(el) el.remove();
+    }
+    ` : ''}
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        renderStore();
+        ${aiEnable ? 'initChat();' : ''}
+    });
     //]]>
     <\/script>
 
@@ -446,7 +589,7 @@
             document.body.removeChild(a);
             
             // Beri Feedback
-            alert("Tema XML Berhasil di-Generate & Diunduh!");
+            alert("Sistem AI Chat Berhasil Di-Integrasikan! Mengunduh XML...");
         }
     </script>
 </body>
