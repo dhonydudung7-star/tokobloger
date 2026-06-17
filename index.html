@@ -9,7 +9,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f9fafb; }
-        /* Scrollbar styling for console */
         #xmlConsole::-webkit-scrollbar { width: 8px; }
         #xmlConsole::-webkit-scrollbar-track { background: #1f2937; }
         #xmlConsole::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
@@ -231,12 +230,54 @@
     }
 
     /* HARD RESET BLOGGER DEFAULT WIDGETS */
-    #navbar-iframe, .Navbar, #b-navbar, .widget-content, .bg-photo, .bg-photo-overlay { display: none !important; opacity: 0 !important; }
-    .widget { margin: 0 !important; }
+    #navbar-iframe,
+    .widget.Attribution,
+    .widget.Profile,
+    .widget.BlogArchive,
+    .widget.Label,
+    .widget.PageList,
+    .widget.Header,
+    .blog-feeds,
+    .feed-links,
+    .status-msg-wrap,
+    .post-footer,
+    .comments,
+    .sidebar,
+    #sidebar-wrapper,
+    #footer-wrapper,
+    #Attribution1,
+    #Profile1,
+    #BlogArchive1,
+    #Label1 {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: var(--bg-body);
+        color: var(--text-dark);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    #main-wrapper,
+    #content-wrapper,
+    .main-inner,
+    .content-inner,
+    .region-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
     
     /* GLOBAL STYLES */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-    body { background-color: var(--bg-body); color: var(--text-dark); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
     a { text-decoration: none; color: inherit; }
 
     /* LAYOUT COMPONENTS */
@@ -354,7 +395,6 @@
         }
 
         themeProducts.forEach(product => {
-            // Format Harga IDR
             const formatter = new Intl.NumberFormat('id-ID', {
                 style: 'currency',
                 currency: 'IDR',
@@ -362,11 +402,9 @@
             });
             const priceFormatted = formatter.format(product.price);
 
-            // Format Pesan WhatsApp
             const waText = encodeURIComponent("Halo " + storeName + ", saya ingin membeli produk ini:\\n\\n" + "*Nama:* " + product.title + "\\n*Harga:* " + priceFormatted + "\\n\\nMohon info ketersediaannya. Terima kasih!");
             const waLink = "https://api.whatsapp.com/send?phone=" + storePhone + "&text=" + waText;
 
-            // Template Literal untuk Card (Perhatikan penggunaan escape di XML Builder-nya sudah ter-handle)
             const cardHtml = \`
                 <div class="product-img" style="background-image: url('\${product.img}')"></div>
                 <div class="product-body">
